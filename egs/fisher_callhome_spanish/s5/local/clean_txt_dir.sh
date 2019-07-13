@@ -33,7 +33,7 @@ if [ $stage -le 0 ]; then
   mkdir -p $workdir
   mkdir -p $textdir/splits
   mkdir -p $outdir/data
-  split -l 1000000 $textdir/in.txt $textdir/splits/out
+  split -l 1000 $textdir/in.txt $textdir/splits/out
   numsplits=0
   for x in $textdir/splits/*; do
     numsplits=$((numsplits+1))
@@ -44,7 +44,7 @@ if [ $stage -le 0 ]; then
   $train_cmd --max_jobs_run 100 JOB=1:$numsplits $outdir/sparrowhawk/log/JOB.log \
     local/run_norm.sh \
     sparrowhawk_configuration.ascii_proto \
-    $SPARROWHAWK_ROOT/language-resources/esp/sparrowhawk/ \
+    $SPARROWHAWK_ROOT/language-resources/ptg/sparrowhawk/ \
     $outdir/data \
     JOB \
     $outdir/sparrowhawk/

@@ -21,9 +21,9 @@ for line in inputfile:
   wordcnt = 0
   for word in words:
     if re.match(r"\b([A-ZÂÁÀÄÊÉÈËÏÍÎÖÓÔÖÚÙÛÑÇ])+[']?s?\b", word):
-      if wordcnt > 0:
+      if wordcnt >= 0:
         word = re.sub('\'?s', 's', word)
-        textout = textout + " ".join(word) + " "
+        textout = textout + "".join(word) + " "
       else:
         textout = textout + word + " "
     else:
